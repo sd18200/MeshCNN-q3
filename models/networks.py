@@ -141,7 +141,7 @@ class MeshConvNet(nn.Module):
         for i in range(len(self.k) - 1):
             x = getattr(self, 'conv{}'.format(i))(x, mesh)
             x = F.relu(getattr(self, 'norm{}'.format(i))(x))
-        x = torch.squeeze(x, -1)  # Squeezes the last dimension
+        x = torch.squeeze(x, -1) 
         x = self.gp(x)
         x = x.view(-1, self.k[-1])
 
